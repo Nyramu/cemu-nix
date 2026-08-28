@@ -1,4 +1,4 @@
-name: Build
+name: Update and Deploy
 
 on:
   schedule:
@@ -33,7 +33,7 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Build to confirm the new pin works
+      - name: Build
         if: steps.diff.outputs.changed == 'true'
         run: nix build . -L
 
