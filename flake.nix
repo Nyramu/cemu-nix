@@ -11,7 +11,7 @@
   };
 
   outputs =
-    inputs@{ flake-parts, import-tree, ... }:
+    { flake-parts, import-tree, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 
   nixConfig = {
